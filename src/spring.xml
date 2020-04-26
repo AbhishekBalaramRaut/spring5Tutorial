@@ -7,9 +7,29 @@
     http://www.springframework.org/schema/context/spring-context.xsd">
      
     <bean id="triangle"    class="com.abhishek.models.Triangle">
-    	<constructor-arg index="0" type="int" value="2" />
+    	<property name="point1"  ref="zero-point" >
     	
+    	</property>
+    	<property name="point2" ref="pnt2" />
+    	<property name="point3">
+    	   <bean  class="com.abhishek.models.Point">
+		    	<property name="pointX" value="0" />
+		    	<property name="pointY" value="20" />
+		    </bean>
+    	</property>
     </bean>
     
-     
+   <bean name="zero-point"  class="com.abhishek.models.Point">
+    	<property name="pointX" value="0" />
+    	<property name="pointY" value="0" />
+    </bean>
+    
+    <bean id="point2"  class="com.abhishek.models.Point"  name="pnt2" >
+    	<property name="pointX" value="-20" />
+    	<property name="pointY" value="0" />
+    </bean>
+    
+    <alias name="pnt2" alias="pt2" />
+ 
+    
 </beans> 

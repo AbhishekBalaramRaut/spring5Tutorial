@@ -3,50 +3,66 @@ package com.abhishek.models;
 public class Triangle {
 
 	private String type;
-	private int height;
-	
+	private Point point1;
+	private Point point2;
+	private Point point3;
+
+	public Triangle() {
+		
+	}
 	public Triangle(String type) {
 		System.out.println("cons 1");
 		this.type = type;
 	}
-	
-	public Triangle(int height) {
-		System.out.println("cons 2");
-		this.height = height;
-	} 
-	
-	public Triangle(String type,int height) {
+
+	public Triangle(String type, int height) {
 		System.out.println("cons 3");
 		this.type = type;
-		this.height = height;
+
 	}
-	
-	public Triangle(int height,String type) {
-		System.out.println("cons 4");
+
+	public Triangle(int height, String type) {
+
 		this.type = type;
-		this.height = height;
+
 	}
-	
+
 	public String getType() {
 		return type;
 	}
-
 
 	public void setType(String type) {
 		this.type = type;
 	}
 
-	
-
-	public int getHeight() {
-		return height;
+	public Point getPoint1() {
+		return point1;
 	}
 
-	public void setHeight(int height) {
-		this.height = height;
+	public void setPoint1(Point point1) {
+		this.point1 = point1;
+	}
+
+	public Point getPoint2() {
+		return point2;
+	}
+
+	public void setPoint2(Point point2) {
+		this.point2 = point2;
+	}
+
+	public Point getPoint3() {
+		return point3;
+	}
+
+	public void setPoint3(Point point3) {
+		this.point3 = point3;
 	}
 
 	public void draw() {
-		System.out.println("Triangle drawn "+this.getType()+ " , "+this.getHeight());
+		System.out.println("Triangle drawn");
+		System.out.println(" Point 1 ("+point1.getPointX()+","+point1.getPointY()+")");
+		System.out.println(" Point 2 ("+point2.getPointX()+","+point2.getPointY()+")");
+		System.out.println(" Point 3 ("+point3.getPointX()+","+point3.getPointY()+")");
 	}
 }
