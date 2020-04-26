@@ -6,7 +6,9 @@
     http://www.springframework.org/schema/context 
     http://www.springframework.org/schema/context/spring-context.xsd">
      
-    <bean id="triangle"    class="com.abhishek.models.Triangle"></bean>
+    <bean id="triangle"    class="com.abhishek.models.Triangle">
+    	<property name="type" value="equilateral" />
+    </bean>
     
      
 </beans> 
