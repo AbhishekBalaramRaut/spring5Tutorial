@@ -7,15 +7,14 @@
     http://www.springframework.org/schema/context/spring-context.xsd">
      
     <bean id="triangle"    class="com.abhishek.models.Triangle">
-    	<property name="point1"  ref="zero-point" >
-    	
-    	</property>
-    	<property name="point2" ref="pnt2" />
-    	<property name="point3">
-    	   <bean  class="com.abhishek.models.Point">
-		    	<property name="pointX" value="0" />
-		    	<property name="pointY" value="20" />
-		    </bean>
+    
+
+    	<property name="points">
+			<list>
+				<ref bean="zero-point" />
+    			<ref bean="point2" />
+    			<ref bean="point3" />
+			</list>
     	</property>
     	
     	<property name="type" >
@@ -32,7 +31,10 @@
     	<property name="pointX" value="-20" />
     	<property name="pointY" value="0" />
     </bean>
-    
+    <bean id="point3"  class="com.abhishek.models.Point"  >
+    	<property name="pointX" value="0" />
+    	<property name="pointY" value="20" />
+    </bean>
     <alias name="pnt2" alias="pt2" />
  
     
