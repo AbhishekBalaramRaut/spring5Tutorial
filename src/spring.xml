@@ -6,23 +6,12 @@
     http://www.springframework.org/schema/context 
     http://www.springframework.org/schema/context/spring-context.xsd">
      
-    <bean id="triangle"    class="com.abhishek.models.Triangle">
+    <bean id="triangle"    class="com.abhishek.models.Triangle" autowire="byName">
     
 
-    	<property name="points">
-			<list>
-				<ref bean="zero-point" />
-    			<ref bean="point2" />
-    			<ref bean="point3" />
-			</list>
-    	</property>
-    	
-    	<property name="type" >
-    	  <idref bean="zero-point" />
-    	</property>
     </bean>
     
-   <bean name="zero-point"  class="com.abhishek.models.Point">
+   <bean name="point1"  class="com.abhishek.models.Point">
     	<property name="pointX" value="0" />
     	<property name="pointY" value="0" />
     </bean>
