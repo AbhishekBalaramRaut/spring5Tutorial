@@ -60,7 +60,7 @@ public class Triangle {
 	}
 
 	public void draw() {
-		System.out.println("Triangle drawn");
+		System.out.println(type+" Triangle drawn ");
 		System.out.println(" Point 1 ("+point1.getPointX()+","+point1.getPointY()+")");
 		System.out.println(" Point 2 ("+point2.getPointX()+","+point2.getPointY()+")");
 		System.out.println(" Point 3 ("+point3.getPointX()+","+point3.getPointY()+")");

@@ -17,6 +17,10 @@
 		    	<property name="pointY" value="20" />
 		    </bean>
     	</property>
+    	
+    	<property name="type" >
+    	  <idref bean="zero-point" />
+    	</property>
     </bean>
     
    <bean name="zero-point"  class="com.abhishek.models.Point">
