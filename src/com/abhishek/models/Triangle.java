@@ -1,12 +1,31 @@
 package com.abhishek.models;
 
-public class Triangle {
+import org.springframework.beans.factory.BeanNameAware;
+import org.springframework.context.ApplicationContext;
+import org.springframework.context.ApplicationContextAware;
+
+public class Triangle implements ApplicationContextAware, BeanNameAware {
 
 
 	private Point point1;
 	private Point point2;
 	private Point point3;
-
+	
+	private ApplicationContext context = null;
+	
+	
+	public ApplicationContext getContext() {
+		return context;
+	}
+	
+	public void setApplicationContext(ApplicationContext context) {
+		System.out.println("Setting context");
+		this.context = context;
+	}
+	
+	public void setBeanName(String beanName) {
+		System.out.println("My bean : "+beanName );
+	}
 	public Triangle() {
 		System.out.println("cons no arg");
 	}
