@@ -35,5 +35,5 @@
     </bean>
     <alias name="pnt2" alias="pt2" />
  
-    
+    <bean class="com.abhishek.processors.MyBeanPostProcessor" />
 </beans> 
