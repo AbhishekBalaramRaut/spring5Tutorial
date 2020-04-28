@@ -17,5 +17,11 @@ public class Point {
 		this.pointY = pointY;
 	}
 	
+	public void myInitDef() throws Exception {
+		System.out.println("myinitDef pt");
+	}
 	
+	public void myDestroyDef() throws Exception {
+		System.out.println("myDestroyDef pt");
+	}
 }

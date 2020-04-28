@@ -62,6 +62,14 @@ public class Triangle implements InitializingBean, DisposableBean, ApplicationCo
 		System.out.println("myDestroy");
 	}
 
+	public void myInitDef() throws Exception {
+		System.out.println("myinitDef");
+	}
+	
+	public void myDestroyDef() throws Exception {
+		System.out.println("myDestroyDef");
+	}
+	
 	@Override
 	public void setBeanName(String arg0) {
 		System.out.println("Bean is "+arg0);
