@@ -6,18 +6,11 @@
     http://www.springframework.org/schema/context 
     http://www.springframework.org/schema/context/spring-context.xsd">
      
-    <bean id="parentTriangle"    class="com.abhishek.models.Triangle">
+         
+    <bean id="triangle"    class="com.abhishek.models.Triangle" init-method="myInit" destroy-method="myDestroy" >
     	<property name="points" >
     	    <list>
-    			<ref bean="point1" />
-    		</list>
-    	</property>
-
-    </bean>
-         
-    <bean id="triangle"    class="com.abhishek.models.Triangle" parent="parentTriangle">
-    	<property name="points" >
-    	    <list merge="true">
+    	    <ref bean="point1" />
     			<ref bean="point2" />
     			<ref bean="point3" />
     		</list>
