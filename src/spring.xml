@@ -21,7 +21,7 @@
     </bean>
     
     <bean id="circle"  class="com.abhishek.models.Circle">
-    	<property name="center" ref="point2" />
+    	
     	
     </bean>
     
@@ -42,6 +42,8 @@
  
  
     <bean class="com.abhishek.processors.MyBeanPostProcessor" />
+    <bean class="org.springframework.beans.factory.annotation.RequiredAnnotationBeanPostProcessor" />
+    
     <bean class="com.abhishek.processors.MyBeanFactoryPP" />
     <bean class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer" >
     	<property name="locations" value="classpath:./com/abhishek/processors/pointsconfig.properties" />
