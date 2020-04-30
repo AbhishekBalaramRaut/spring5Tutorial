@@ -10,7 +10,7 @@ import org.springframework.beans.factory.InitializingBean;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.ApplicationContextAware;
 
-public class Triangle implements InitializingBean, DisposableBean, ApplicationContextAware, BeanNameAware{
+public class Triangle implements Shape,InitializingBean, DisposableBean, ApplicationContextAware, BeanNameAware{
 
 
 	private List<Point> points = new ArrayList<>(); 

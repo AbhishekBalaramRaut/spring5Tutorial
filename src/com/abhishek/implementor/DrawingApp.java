@@ -7,6 +7,7 @@ import org.springframework.context.support.AbstractApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 import org.springframework.core.io.FileSystemResource;
 
+import com.abhishek.models.Shape;
 import com.abhishek.models.Triangle;
 
 public class DrawingApp {
@@ -16,7 +17,7 @@ public class DrawingApp {
 		AbstractApplicationContext context = new ClassPathXmlApplicationContext("spring.xml");
 		context.registerShutdownHook();
 		//BeanFactory beanF = new XmlBeanFactory(new FileSystemResource("spring.xml"));
-		Triangle t = (Triangle) context.getBean("triangle");
+		Shape t = (Shape) context.getBean("circle");
 		t.draw();
 	
 	}
