@@ -21,8 +21,8 @@
     </bean>
     
    <bean id="point1"  class="com.abhishek.models.Point">
-    	<property name="pointX" value="0" />
-    	<property name="pointY" value="0" />
+    	<property name="pointX" value="${pointX}" />
+    	<property name="pointY" value="${pointY}" />
     </bean>
     
     <bean id="point2"  class="com.abhishek.models.Point"   >
@@ -36,4 +36,8 @@
     <alias name="pnt2" alias="pt2" />
  
     <bean class="com.abhishek.processors.MyBeanPostProcessor" />
+    <bean class="com.abhishek.processors.MyBeanFactoryPP" />
+    <bean class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer" >
+    	<property name="locations" value="classpath:./com/abhishek/processors/pointsconfig.properties" />
+    </bean>
 </beans> 
