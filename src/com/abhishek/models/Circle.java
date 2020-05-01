@@ -25,7 +25,7 @@ public class Circle implements Shape , ApplicationEventPublisherAware{
 	@Override
 	public void draw() {
 		System.out.println(" Circle drawn ");
-		System.out.println(messageSource.getMessage("var1",null, "dummy text", null));
+		System.out.println(messageSource.getMessage("withPara",new Object[] {"Abhishek","Raut"}, "dummy text", null));
 		DrawEvent de = new DrawEvent(this);
 		publisher.publishEvent(de);
 		System.out.println("Circle center is point ("+center.getPointX()+","+center.getPointY()+")");
