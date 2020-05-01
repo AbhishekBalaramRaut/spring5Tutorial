@@ -18,6 +18,7 @@ public class DrawingApp {
 		context.registerShutdownHook();
 	
 		Shape t = (Shape) context.getBean("circle1");
+		System.out.println(context.getMessage("pointX",null, "dummy text", null));
 		t.draw();
 	
 	}
