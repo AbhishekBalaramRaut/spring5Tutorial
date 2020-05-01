@@ -7,6 +7,7 @@ import javax.annotation.Resource;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.beans.factory.annotation.Required;
+import org.springframework.context.MessageSource;
 import org.springframework.stereotype.Component;
 
 @Component("circle1")
@@ -14,9 +15,14 @@ public class Circle implements Shape {
   
 	private Point center;
 	
+	@Autowired
+	private MessageSource messageSource;
+	
 	@Override
 	public void draw() {
 		System.out.println(" Circle drawn ");
+		System.out.println(messageSource.getMessage("var1",null, "dummy text", null));
+	
 		System.out.println("Circle center is point ("+center.getPointX()+","+center.getPointY()+")");
 	}
 

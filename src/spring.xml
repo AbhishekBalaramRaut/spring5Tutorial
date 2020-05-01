@@ -52,7 +52,7 @@
       <property name="basenames">
         <list>
           <value>my-messages-file </value>
-       <!--    <value>classpath:com/abhishek/processors/pointsconfig</value> -->
+       
         </list>
       </property>
     </bean>
