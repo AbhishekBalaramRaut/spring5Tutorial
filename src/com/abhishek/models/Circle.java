@@ -12,7 +12,7 @@ import org.springframework.context.ApplicationEventPublisherAware;
 import org.springframework.context.MessageSource;
 import org.springframework.stereotype.Component;
 
-@Component("circle1")
+@Component()
 public class Circle implements Shape , ApplicationEventPublisherAware{
   
 	private Point center;
