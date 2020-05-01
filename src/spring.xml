@@ -9,7 +9,7 @@
     default-init-method="myInitDef" default-destroy-method="myDestroyDef">
      
          
-   <!--  <bean id="triangle"    class="com.abhishek.models.Triangle" init-method="myInit" destroy-method="myDestroy" >
+    <bean id="triangle"    class="com.abhishek.models.Triangle" init-method="myInit" destroy-method="myDestroy" >
     	<property name="points" >
     	    <list>
     	    <ref bean="point1" />
@@ -18,12 +18,9 @@
     		</list>
     	</property>
 
-    </bean> -->
-    <context:annotation-config/>
-    <bean id="circle"  class="com.abhishek.models.Circle">
-    	
-    	
     </bean>
+    <context:annotation-config/>
+    <context:component-scan base-package="com.abhishek.models" />
     
    <bean id="point1"  class="com.abhishek.models.Point">
    	    <qualifier value="cirlceRelated" />
