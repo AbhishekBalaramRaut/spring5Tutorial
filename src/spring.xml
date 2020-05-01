@@ -9,7 +9,7 @@
     default-init-method="myInitDef" default-destroy-method="myDestroyDef">
      
          
-    <bean id="triangle"    class="com.abhishek.models.Triangle" init-method="myInit" destroy-method="myDestroy" >
+   <!--  <bean id="triangle"    class="com.abhishek.models.Triangle" init-method="myInit" destroy-method="myDestroy" >
     	<property name="points" >
     	    <list>
     	    <ref bean="point1" />
@@ -18,7 +18,7 @@
     		</list>
     	</property>
 
-    </bean>
+    </bean> -->
     
     <bean id="circle"  class="com.abhishek.models.Circle">
     	
@@ -30,19 +30,20 @@
     	<property name="pointY" value="${pointY}" />
     </bean>
     
-    <bean id="point2"  class="com.abhishek.models.Point"   >
+    <!-- <bean id="point2"  class="com.abhishek.models.Point"   >
     	<property name="pointX" value="-20" />
     	<property name="pointY" value="0" />
     </bean>
     <bean id="point3"  class="com.abhishek.models.Point"  >
     	<property name="pointX" value="0" />
     	<property name="pointY" value="20" />
-    </bean>
+    </bean> -->
     <alias name="pnt2" alias="pt2" />
  
  
     <bean class="com.abhishek.processors.MyBeanPostProcessor" />
     <bean class="org.springframework.beans.factory.annotation.RequiredAnnotationBeanPostProcessor" />
+    <bean class="org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor" />
     
     <bean class="com.abhishek.processors.MyBeanFactoryPP" />
     <bean class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer" >
