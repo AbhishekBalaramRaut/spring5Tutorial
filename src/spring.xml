@@ -19,14 +19,14 @@
     	</property>
 
     </bean> -->
-    
+    <context:annotation-config/>
     <bean id="circle"  class="com.abhishek.models.Circle">
     	
     	
     </bean>
     
-   <bean id="center"  class="com.abhishek.models.Point">
-   	   
+   <bean id="point1"  class="com.abhishek.models.Point">
+   	    <qualifier value="cirlceRelated" />
     	<property name="pointX" value="${pointX}" />
     	<property name="pointY" value="${pointY}" />
     </bean>
