@@ -7,22 +7,27 @@ import javax.annotation.Resource;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.beans.factory.annotation.Required;
+import org.springframework.context.ApplicationEventPublisher;
+import org.springframework.context.ApplicationEventPublisherAware;
 import org.springframework.context.MessageSource;
 import org.springframework.stereotype.Component;
 
 @Component("circle1")
-public class Circle implements Shape {
+public class Circle implements Shape , ApplicationEventPublisherAware{
   
 	private Point center;
 	
 	@Autowired
 	private MessageSource messageSource;
 	
+	private ApplicationEventPublisher publisher;
+	
 	@Override
 	public void draw() {
 		System.out.println(" Circle drawn ");
 		System.out.println(messageSource.getMessage("var1",null, "dummy text", null));
-	
+		DrawEvent de = new DrawEvent(this);
+		publisher.publishEvent(de);
 		System.out.println("Circle center is point ("+center.getPointX()+","+center.getPointY()+")");
 	}
 
@@ -46,5 +51,11 @@ public class Circle implements Shape {
 	@PreDestroy
 	public void circlePreDestroy() {
 		System.out.println(" circlePreDestroy");
+	}
+
+	@Override
+	public void setApplicationEventPublisher(ApplicationEventPublisher publisher) {
+		this.publisher = publisher;
+		
 	}
 }
