@@ -21,7 +21,7 @@ public class Circle implements Shape {
 	}
 
 	//JSR 250
-	@Resource
+	@Resource(name="point1")
 	public void setCenter(Point center) {
 		
 		this.center = center;
