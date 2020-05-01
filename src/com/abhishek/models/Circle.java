@@ -1,5 +1,7 @@
 package com.abhishek.models;
 
+import javax.annotation.Resource;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.beans.factory.annotation.Required;
@@ -18,8 +20,8 @@ public class Circle implements Shape {
 		return center;
 	}
 
-	@Autowired
-	@Qualifier("cirlceRelated")
+	//JSR 250
+	@Resource
 	public void setCenter(Point center) {
 		
 		this.center = center;
