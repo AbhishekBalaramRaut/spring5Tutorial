@@ -25,19 +25,20 @@
     	
     </bean>
     
-   <bean id="point1"  class="com.abhishek.models.Point">
+   <bean id="center"  class="com.abhishek.models.Point">
+   	   
     	<property name="pointX" value="${pointX}" />
     	<property name="pointY" value="${pointY}" />
     </bean>
     
-    <!-- <bean id="point2"  class="com.abhishek.models.Point"   >
+    <bean id="point2"  class="com.abhishek.models.Point"   >
     	<property name="pointX" value="-20" />
     	<property name="pointY" value="0" />
     </bean>
     <bean id="point3"  class="com.abhishek.models.Point"  >
     	<property name="pointX" value="0" />
     	<property name="pointY" value="20" />
-    </bean> -->
+    </bean>
     <alias name="pnt2" alias="pt2" />
  
  
