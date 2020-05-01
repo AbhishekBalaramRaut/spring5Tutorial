@@ -1,5 +1,7 @@
 package com.abhishek.models;
 
+import javax.annotation.PostConstruct;
+import javax.annotation.PreDestroy;
 import javax.annotation.Resource;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -28,5 +30,13 @@ public class Circle implements Shape {
 		System.out.println("Circle center from setter is point ("+center.getPointX()+","+center.getPointY()+")");
 	}
   
+	@PostConstruct
+	public void circlePostConstruct() {
+		System.out.println(" circlePostConstruct");
+	}
 	
+	@PreDestroy
+	public void circlePreDestroy() {
+		System.out.println(" circlePreDestroy");
+	}
 }
