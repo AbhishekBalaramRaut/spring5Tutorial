@@ -15,7 +15,7 @@ public class TestAop {
 	
 		ShapeService t = context.getBean("shapeService",ShapeService.class);
 		
-		System.out.println(t.getCircle().getCenter().getPointX());
+		t.getCircle().setName("equi");
 	}
 
 }
