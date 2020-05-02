@@ -10,17 +10,22 @@ import com.abhishek.models.Point;
 @Aspect
 public class LoggingAspect {
 
-	@Before("MyPointcut()")
+	@Before("OnlytGetters() && OnlyCircle()")
 	 public void LoggingAdviceBefore() {
 		 System.out.println("Before logging advice");
 	 }
-	 @After("MyPointcut()")
+	 @After("OnlytGetters()")
 	 public void LoggingAdviceAfter() {
 		 System.out.println("After logging advice");
 	 }
 	 
 	 @Pointcut("execution(*  get*())")
-	 public void MyPointcut() {
+	 public void OnlytGetters() {
+		
+	 }
+	 
+	 @Pointcut("within(com.abhishek.models.Circle)")
+	 public void OnlyCircle() {
 		
 	 }
 }
