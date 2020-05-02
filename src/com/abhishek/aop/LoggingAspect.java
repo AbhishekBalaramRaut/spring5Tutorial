@@ -2,6 +2,8 @@ package com.abhishek.aop;
 
 import org.aspectj.lang.JoinPoint;
 import org.aspectj.lang.annotation.After;
+import org.aspectj.lang.annotation.AfterReturning;
+import org.aspectj.lang.annotation.AfterThrowing;
 import org.aspectj.lang.annotation.Aspect;
 import org.aspectj.lang.annotation.Before;
 import org.aspectj.lang.annotation.Pointcut;
@@ -22,16 +24,21 @@ public class LoggingAspect {
 		 System.out.println("Before 2 logging advice ");
 	 }
 	
-	@Before("execution(* set*(*)) && OnlyCircle()")
+/*	@Before("execution(* set*(*)) && OnlyCircle()")
 	 public void LoggingAdviceJoinPoint(JoinPoint joinPoint) {
 		 System.out.println(joinPoint.getTarget());
 		 Circle c = (Circle)joinPoint.getTarget();
 		 System.out.println(c.getName());
-	 }
+	 }*/
 	
-	 @After("OnlytGetters()")
-	 public void LoggingAdviceAfter() {
-		 System.out.println("After logging advice");
+	 @AfterReturning("execution(*  set*(*)) && OnlyCircle()")
+	 public void LoggingAdviceAfterReturning() {
+		 System.out.println("@AfterReturning logging advice");
+	 }
+	 
+	 @AfterThrowing("execution(*  set*(*)) && OnlyCircle()")
+	 public void LoggingAdviceAfterThrowing() {
+		 System.out.println("@AfterThrowing logging advice");
 	 }
 	 
 	 @Pointcut("execution(*  get*())")

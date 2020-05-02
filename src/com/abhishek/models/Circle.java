@@ -28,9 +28,11 @@ public class Circle implements Shape , ApplicationEventPublisherAware{
 
 	/**
 	 * @param name the name to set
+	 * @throws Exception 
 	 */
-	public void setName(String name) {
+	public void setName(String name) throws Exception {
 		this.name = name;
+		
 	}
 
 	@Autowired

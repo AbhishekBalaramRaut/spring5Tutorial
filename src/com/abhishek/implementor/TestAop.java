@@ -15,7 +15,12 @@ public class TestAop {
 	
 		ShapeService t = context.getBean("shapeService",ShapeService.class);
 		
-		t.getCircle().setName("equi");
+		try {
+			t.getCircle().setName("equi");
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 	}
 
 }
