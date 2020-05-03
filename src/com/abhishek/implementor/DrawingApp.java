@@ -16,6 +16,7 @@ public class DrawingApp {
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
+		
 		AbstractApplicationContext context = new ClassPathXmlApplicationContext("spring.xml");
 		context.registerShutdownHook();
 		TestJdbc t   =  context.getBean("testJdbc",TestJdbc.class);

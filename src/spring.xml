@@ -82,12 +82,13 @@
 
     </bean>
     
-    <bean id="datasource" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
-    	<property name="driverClassName" value="com.mysql.jdbc.Driver" />
+    <bean id="datasource" class="org.apache.commons.dbcp.BasicDataSource">
+    	<property name="driverClassName" value="com.mysql.cj.jdbc.Driver" />
     	<property name="url" value="jdbc:mysql://localhost:3307/rautlibrary?useSSL=false" />
     	<property name="username" value="root" />
 		<property name="password" value="Password123" />
-
+        <property name="initialSize" value="2" />
+		<property name="maxActive" value="5" />	
     	
     </bean>
 </beans> 

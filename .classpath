@@ -6,5 +6,7 @@
 	<classpathentry kind="lib" path="D:/Jars/newSpring/commons-logging-1.2-bin/commons-logging-1.2/commons-logging-1.2.jar"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.USER_LIBRARY/spring-aop"/>
 	<classpathentry kind="lib" path="D:/Jars/newSpring/mysql-connector-java-8.0.11.jar"/>
+	<classpathentry kind="lib" path="D:/Jars/newSpring/commons-dbcp-1.4.jar"/>
+	<classpathentry kind="lib" path="D:/Jars/newSpring/commons-pool-1.4.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>
