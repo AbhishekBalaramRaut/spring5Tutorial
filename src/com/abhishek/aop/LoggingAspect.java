@@ -1,9 +1,11 @@
 package com.abhishek.aop;
 
 import org.aspectj.lang.JoinPoint;
+import org.aspectj.lang.ProceedingJoinPoint;
 import org.aspectj.lang.annotation.After;
 import org.aspectj.lang.annotation.AfterReturning;
 import org.aspectj.lang.annotation.AfterThrowing;
+import org.aspectj.lang.annotation.Around;
 import org.aspectj.lang.annotation.Aspect;
 import org.aspectj.lang.annotation.Before;
 import org.aspectj.lang.annotation.Pointcut;
@@ -31,7 +33,7 @@ public class LoggingAspect {
 		 System.out.println(c.getName());
 	 }*/
 	
-	 @AfterReturning(value="execution(*  set*(*)) && OnlyCircle()", returning="name")
+	/* @AfterReturning(value="execution(*  set*(*)) && OnlyCircle()", returning="name")
 	 public void LoggingAdviceAfterReturning(JoinPoint a , Object name) {
 		 System.out.println("@AfterReturning logging advice a:"+name);
 	 }
@@ -39,7 +41,26 @@ public class LoggingAspect {
 	 @AfterThrowing(value="execution(*  set*(..)) && OnlyCircle()", throwing="ex")
 	 public void LoggingAdviceAfterThrowing(JoinPoint jp,Exception ex) {
 		 System.out.println("@AfterThrowing logging advice "+ex.getMessage());
+	 }*/
+	 
+	 
+	 @Around(value="execution(*  set*(..)) && OnlyCircle()")
+	 public String LoggingAdviceAfterThrowing(ProceedingJoinPoint jp) {
+		 String name = null;
+		 try {
+			System.out.println("Around advice before");
+			 name= (String) jp.proceed();
+			 System.out.println("Around advice after " +name);
+		} catch (Throwable e) {
+			
+			System.out.println("Around advice handled exception");
+		}
+		 finally {
+			 System.out.println("Around advice finally");
+		 }
+		 return name;
 	 }
+	 
 	 
 	 @Pointcut("execution(*  get*())")
 	 public void OnlytGetters() {
