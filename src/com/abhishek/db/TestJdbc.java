@@ -6,28 +6,26 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
+import javax.sql.DataSource;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
+
 import com.abhishek.models.Circle;
 
-public class TestJdbc {
-	// JDBC driver name and database URL
-	static final String JDBC_DRIVER = "com.mysql.jdbc.Driver";
-	static final String DB_URL = "jdbc:mysql://localhost:3307/rautlibrary";
 
-	// Database credentials
-	static final String USER = "root";
-	static final String PASS = "Password123";
+public class TestJdbc {
+	
+	@Autowired
+	private DataSource datasource;
 
 	public Circle getMyCircle(int circleId) {
 	   Circle circle = null;
 	   Connection conn = null;
 	   PreparedStatement  stmt = null;
 	   try{
-	      //STEP 2: Register JDBC driver
-	      Class.forName("com.mysql.jdbc.Driver");
-	
-	      //STEP 3: Open a connection
-	      System.out.println("Connecting to database...");
-	      conn = DriverManager.getConnection(DB_URL,USER,PASS);
+
+	      conn = datasource.getConnection();
 	
 	      //STEP 4: Execute a query
 	      String sql = "select * from  rautlibrary.circle where circleId= ?";
@@ -77,4 +75,19 @@ public class TestJdbc {
 	   	System.out.println("Goodbye!");
 	   	return circle;
 	}
+
+	/**
+	 * @return the datasource
+	 */
+	public DataSource getDatasource() {
+		return datasource;
+	}
+
+	/**
+	 * @param datasource the datasource to set
+	 */
+	public void setDatasource(DataSource datasource) {
+		this.datasource = datasource;
+	}
+	
 }

@@ -28,7 +28,7 @@
     
     <context:annotation-config/>
     
-    <context:component-scan base-package="com.abhishek.models" />
+    <context:component-scan base-package="com.abhishek" />
     <bean name="jdbcTest"  class="com.abhishek.db.TestJdbc" />
     
    <bean name="loggingAspect"  class="com.abhishek.aop.LoggingAspect" />
@@ -77,4 +77,17 @@
           <aop:after-throwing method="LoggingAdviceAfterThrowing" throwing="ex" pointcut-ref="allCircleMethods" />  
        </aop:aspect>
     </aop:config>
+    
+    <bean id="testJdbc" class="com.abhishek.db.TestJdbc" >
+
+    </bean>
+    
+    <bean id="datasource" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
+    	<property name="driverClassName" value="com.mysql.jdbc.Driver" />
+    	<property name="url" value="jdbc:mysql://localhost:3307/rautlibrary?useSSL=false" />
+    	<property name="username" value="root" />
+		<property name="password" value="Password123" />
+
+    	
+    </bean>
 </beans> 
