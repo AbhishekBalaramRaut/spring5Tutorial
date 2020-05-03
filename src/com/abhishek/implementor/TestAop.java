@@ -18,8 +18,7 @@ public class TestAop {
 		try {
 			t.getCircle().setName("equi");
 		} catch (Exception e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
+			System.out.println("Exception handled");
 		}
 	}
 

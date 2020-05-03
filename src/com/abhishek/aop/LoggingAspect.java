@@ -31,14 +31,14 @@ public class LoggingAspect {
 		 System.out.println(c.getName());
 	 }*/
 	
-	 @AfterReturning("execution(*  set*(*)) && OnlyCircle()")
-	 public void LoggingAdviceAfterReturning() {
-		 System.out.println("@AfterReturning logging advice");
+	 @AfterReturning(value="execution(*  set*(*)) && OnlyCircle()", returning="name")
+	 public void LoggingAdviceAfterReturning(JoinPoint a , Object name) {
+		 System.out.println("@AfterReturning logging advice a:"+name);
 	 }
 	 
-	 @AfterThrowing("execution(*  set*(*)) && OnlyCircle()")
-	 public void LoggingAdviceAfterThrowing() {
-		 System.out.println("@AfterThrowing logging advice");
+	 @AfterThrowing(value="execution(*  set*(..)) && OnlyCircle()", throwing="ex")
+	 public void LoggingAdviceAfterThrowing(JoinPoint jp,Exception ex) {
+		 System.out.println("@AfterThrowing logging advice "+ex.getMessage());
 	 }
 	 
 	 @Pointcut("execution(*  get*())")
