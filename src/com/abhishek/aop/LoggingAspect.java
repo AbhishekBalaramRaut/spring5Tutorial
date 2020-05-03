@@ -17,35 +17,35 @@ import com.abhishek.processors.ShapeService;
 @Aspect
 public class LoggingAspect {
 
-	@Before("args(name)")
+	
 	 public void LoggingAdviceBefore(String name) {
 		 System.out.println("Before logging advice "+name);
 	 }
-	@Before("args(String)")
+	
 	 public void LoggingAdviceBefore1() {
 		 System.out.println("Before 2 logging advice ");
 	 }
 	
-/*	@Before("execution(* set*(*)) && OnlyCircle()")
+	
 	 public void LoggingAdviceJoinPoint(JoinPoint joinPoint) {
 		 System.out.println(joinPoint.getTarget());
 		 Circle c = (Circle)joinPoint.getTarget();
 		 System.out.println(c.getName());
-	 }*/
+	 }
 	
-	/* @AfterReturning(value="execution(*  set*(*)) && OnlyCircle()", returning="name")
+	 
 	 public void LoggingAdviceAfterReturning(JoinPoint a , Object name) {
 		 System.out.println("@AfterReturning logging advice a:"+name);
 	 }
 	 
-	 @AfterThrowing(value="execution(*  set*(..)) && OnlyCircle()", throwing="ex")
+	
 	 public void LoggingAdviceAfterThrowing(JoinPoint jp,Exception ex) {
 		 System.out.println("@AfterThrowing logging advice "+ex.getMessage());
-	 }*/
+	 }
 	 
 	 
-	 @Around(value="execution(*  set*(..)) && OnlyCircle()")
-	 public String LoggingAdviceAfterThrowing(ProceedingJoinPoint jp) {
+	 
+	 public String LoggingAdviceAround(ProceedingJoinPoint jp) {
 		 String name = null;
 		 try {
 			System.out.println("Around advice before");
@@ -61,13 +61,11 @@ public class LoggingAspect {
 		 return name;
 	 }
 	 
-	 
-	 @Pointcut("execution(*  get*())")
 	 public void OnlytGetters() {
 		
 	 }
 	 
-	 @Pointcut("within(com.abhishek.models.Circle)")
+	
 	 public void OnlyCircle() {
 		
 	 }

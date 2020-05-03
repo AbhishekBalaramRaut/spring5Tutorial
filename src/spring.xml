@@ -66,4 +66,14 @@
         </list>
       </property>
     </bean>
+    
+    <aop:config >
+       <aop:aspect id="logAspect" ref="loggingAspect" >
+          <aop:pointcut expression="within(com.abhishek.models.Circle)" id="allCircleMethods"/>
+          <aop:around pointcut-ref="allCircleMethods"  method="LoggingAdviceAround"/>
+          
+          <aop:after-returning method="LoggingAdviceAfterReturning" returning="name" pointcut="execution(*  set*(*)) and within(com.abhishek.models.Circle)" />  
+          <aop:after-throwing method="LoggingAdviceAfterThrowing" throwing="ex" pointcut-ref="allCircleMethods" />  
+       </aop:aspect>
+    </aop:config>
 </beans> 
