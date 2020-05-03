@@ -15,10 +15,26 @@ import org.springframework.stereotype.Component;
 @Component()
 public class Circle implements Shape , ApplicationEventPublisherAware{
   
+	private int circleId;
 	private Point center;
 	private String name;
 	
 	
+	
+	/**
+	 * @return the circleId
+	 */
+	public int getCircleId() {
+		return circleId;
+	}
+
+	/**
+	 * @param circleId the circleId to set
+	 */
+	public void setCircleId(int circleId) {
+		this.circleId = circleId;
+	}
+
 	/**
 	 * @return the name
 	 */
