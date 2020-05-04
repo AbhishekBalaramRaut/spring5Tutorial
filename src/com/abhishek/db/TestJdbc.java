@@ -5,18 +5,19 @@ import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.List;
 
 import javax.sql.DataSource;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
+import org.springframework.jdbc.core.RowMapper;
 import org.springframework.stereotype.Component;
 
 import com.abhishek.models.Circle;
 
 
 public class TestJdbc {
-	
 	
 	private DataSource datasource;
 
@@ -86,10 +87,36 @@ public class TestJdbc {
 	
 	
 	public String getCircleName(int circleId) {
-		String sql = "Select count(*) from  rautlibrary.circle  where circleId= "+circleId;
-		return jdbcTemplate.queryForObject(sql,String.class);
+		String sql = "Select name from  rautlibrary.circle  where circleId= ?";
+		return jdbcTemplate.queryForObject(sql,new Object[] {circleId} ,String.class);
 	}
 	
+	public Circle getCircle(int circleId) {
+		String sql = "Select * from  rautlibrary.circle  where circleId= ?";
+		return jdbcTemplate.queryForObject(sql,new Object[] {circleId} ,new CircleMapper());
+	}
+	
+	public List<Circle> getCircleList() {
+		String sql = "Select * from  rautlibrary.circle";
+		return (List<Circle>) jdbcTemplate.query(sql,new CircleMapper());
+	}
+	
+	private static final class CircleMapper implements RowMapper<Circle> {
+		
+		@Override
+		public Circle mapRow(ResultSet rs, int rowNum) throws SQLException {
+			
+			Circle c = new Circle();
+			c.setCircleId(rs.getInt("circleId"));
+			try {
+				c.setName(rs.getString("name"));
+			} catch (Exception e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+			return c;
+		}
+	}
 	/**
 	 * @return the datasource
 	 */

@@ -23,6 +23,8 @@ public class DrawingApp {
 		
 		System.out.println("Circle is  "+t.getCircleTotalCount());
 		System.out.println("Name for Circle with id 1 is  "+t.getCircleName(1));
+		System.out.println("circle object with id 1 is  "+t.getCircle(1));
+		System.out.println("circle list  size is  "+t.getCircleList().size());
 	
 	}
 
