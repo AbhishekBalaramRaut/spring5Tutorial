@@ -47,9 +47,8 @@ public class Circle implements Shape , ApplicationEventPublisherAware{
 	 * @throws Exception 
 	 */
 	
-	public String setName(String name) throws Exception {
+	public void setName(String name) {
 		this.name = name;
-		return "Abhi";
 	}
 
 	@Autowired

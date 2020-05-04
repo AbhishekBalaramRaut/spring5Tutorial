@@ -101,6 +101,17 @@ public class TestJdbc {
 		return (List<Circle>) jdbcTemplate.query(sql,new CircleMapper());
 	}
 	
+	public void insertCircle(Circle c) {
+		String sql = "insert into circle(circleId,name) values (?,?)";
+		jdbcTemplate.update(sql, new Object[] {c.getCircleId(),c.getName()});
+	}
+	
+	public void createTriangleTable() {
+		String sql = "Create table Triangle (triangleId integer(4) primary key,name varchar(30) not null)";
+		
+		jdbcTemplate.execute(sql);
+	}
+	
 	private static final class CircleMapper implements RowMapper<Circle> {
 		
 		@Override
@@ -108,12 +119,9 @@ public class TestJdbc {
 			
 			Circle c = new Circle();
 			c.setCircleId(rs.getInt("circleId"));
-			try {
-				c.setName(rs.getString("name"));
-			} catch (Exception e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			}
+			
+			c.setName(rs.getString("name"));
+		
 			return c;
 		}
 	}

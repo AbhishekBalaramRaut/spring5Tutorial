@@ -25,6 +25,11 @@ public class DrawingApp {
 		System.out.println("Name for Circle with id 1 is  "+t.getCircleName(1));
 		System.out.println("circle object with id 1 is  "+t.getCircle(1));
 		System.out.println("circle list  size is  "+t.getCircleList().size());
+		
+		Circle c = new Circle();
+		c.setCircleId(3);
+		c.setName("perpendi");
+	  //  t.createTriangleTable();
 	
 	}
 
