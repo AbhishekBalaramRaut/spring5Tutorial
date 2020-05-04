@@ -20,8 +20,9 @@ public class DrawingApp {
 		AbstractApplicationContext context = new ClassPathXmlApplicationContext("spring.xml");
 		context.registerShutdownHook();
 		TestJdbc t   =  context.getBean("testJdbc",TestJdbc.class);
-		Circle c = t.getMyCircle(2);
-		System.out.println("Circle is  "+c.getName());
+		
+		System.out.println("Circle is  "+t.getCircleTotalCount());
+		System.out.println("Name for Circle with id 1 is  "+t.getCircleName(1));
 	
 	}
 
