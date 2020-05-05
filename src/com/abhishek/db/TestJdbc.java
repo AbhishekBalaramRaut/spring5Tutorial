@@ -12,6 +12,9 @@ import javax.sql.DataSource;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.RowMapper;
+import org.springframework.jdbc.core.namedparam.MapSqlParameterSource;
+import org.springframework.jdbc.core.namedparam.NamedParameterJdbcTemplate;
+import org.springframework.jdbc.core.namedparam.SqlParameterSource;
 import org.springframework.stereotype.Component;
 
 import com.abhishek.models.Circle;
@@ -22,6 +25,7 @@ public class TestJdbc {
 	private DataSource datasource;
 
 	private JdbcTemplate jdbcTemplate;
+	private NamedParameterJdbcTemplate namedParameterJdbcTemplate;
 	
 	public Circle getMyCircle(int circleId) {
 	   Circle circle = null;
@@ -106,6 +110,20 @@ public class TestJdbc {
 		jdbcTemplate.update(sql, new Object[] {c.getCircleId(),c.getName()});
 	}
 	
+	public Circle getCircleNamed(int circleId) {
+		String sql = "Select * from  rautlibrary.circle  where circleId= :circleId";
+		SqlParameterSource map = new MapSqlParameterSource("circleId",circleId);
+				
+		return  namedParameterJdbcTemplate.queryForObject(sql, map, new CircleMapper());
+	}
+	
+	public void insertCircleNamed(Circle c) {
+		String sql = "insert into circle(circleId,name) values (:id,:name)";
+		SqlParameterSource map = new MapSqlParameterSource("id",c.getCircleId())
+				.addValue("name",c.getName());
+		namedParameterJdbcTemplate.update(sql, map);
+	}
+	
 	public void createTriangleTable() {
 		String sql = "Create table Triangle (triangleId integer(4) primary key,name varchar(30) not null)";
 		
@@ -138,6 +156,7 @@ public class TestJdbc {
 	@Autowired
 	public void setDatasource(DataSource datasource) {
 		jdbcTemplate = new JdbcTemplate(datasource);
+		namedParameterJdbcTemplate= new NamedParameterJdbcTemplate(datasource);
 	}
 	
 }

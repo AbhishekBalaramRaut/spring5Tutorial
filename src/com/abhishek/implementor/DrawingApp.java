@@ -21,15 +21,12 @@ public class DrawingApp {
 		context.registerShutdownHook();
 		TestJdbc t   =  context.getBean("testJdbc",TestJdbc.class);
 		
-		System.out.println("Circle is  "+t.getCircleTotalCount());
-		System.out.println("Name for Circle with id 1 is  "+t.getCircleName(1));
-		System.out.println("circle object with id 1 is  "+t.getCircle(1));
-		System.out.println("circle list  size is  "+t.getCircleList().size());
+
 		
 		Circle c = new Circle();
-		c.setCircleId(3);
-		c.setName("perpendi");
-	  //  t.createTriangleTable();
+		c.setCircleId(4);
+		c.setName("perpendi4");
+		System.out.println("Name for Circle with id 1 is  "+t.getCircleNamed(4));
 	
 	}
 
