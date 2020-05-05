@@ -81,6 +81,7 @@
     <bean id="testJdbc" class="com.abhishek.db.TestJdbc" >
 
     </bean>
+ 
     
     <bean id="datasource" class="org.apache.commons.dbcp.BasicDataSource">
     	<property name="driverClassName" value="com.mysql.cj.jdbc.Driver" />
@@ -90,5 +91,9 @@
         <property name="initialSize" value="2" />
 		<property name="maxActive" value="5" />	
     	
+    </bean>
+    
+    <bean id="simpleJdbcDAOImpl" class="com.abhishek.db.SimpleJdbcDAOImpl" >
+		<property name="dataSource" ref="datasource" />
     </bean>
 </beans> 

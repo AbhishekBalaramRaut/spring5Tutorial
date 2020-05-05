@@ -7,6 +7,7 @@ import org.springframework.context.support.AbstractApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 import org.springframework.core.io.FileSystemResource;
 
+import com.abhishek.db.SimpleJdbcDAOImpl;
 import com.abhishek.db.TestJdbc;
 import com.abhishek.models.Circle;
 import com.abhishek.models.Shape;
@@ -19,15 +20,15 @@ public class DrawingApp {
 		
 		AbstractApplicationContext context = new ClassPathXmlApplicationContext("spring.xml");
 		context.registerShutdownHook();
-		TestJdbc t   =  context.getBean("testJdbc",TestJdbc.class);
+		SimpleJdbcDAOImpl t   =  context.getBean("simpleJdbcDAOImpl",SimpleJdbcDAOImpl.class);
 		
 
 		
 		Circle c = new Circle();
 		c.setCircleId(4);
 		c.setName("perpendi4");
-		System.out.println("Name for Circle with id 1 is  "+t.getCircleNamed(4));
-	
+		System.out.println("Name for Circle with id 4 is  "+t.getCircle(4));
+
 	}
 
 }
