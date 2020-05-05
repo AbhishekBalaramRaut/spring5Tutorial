@@ -1,17 +1,12 @@
 package com.abhishek.implementor;
 
-import org.springframework.beans.factory.BeanFactory;
-import org.springframework.beans.factory.xml.XmlBeanFactory;
-import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.AbstractApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
-import org.springframework.core.io.FileSystemResource;
 
+import com.abhishek.db.HibernateDAOImpl;
 import com.abhishek.db.SimpleJdbcDAOImpl;
-import com.abhishek.db.TestJdbc;
 import com.abhishek.models.Circle;
-import com.abhishek.models.Shape;
-import com.abhishek.models.Triangle;
+
 
 public class DrawingApp {
 
@@ -20,15 +15,19 @@ public class DrawingApp {
 		
 		AbstractApplicationContext context = new ClassPathXmlApplicationContext("spring.xml");
 		context.registerShutdownHook();
-		SimpleJdbcDAOImpl t   =  context.getBean("simpleJdbcDAOImpl",SimpleJdbcDAOImpl.class);
+		HibernateDAOImpl t   =  context.getBean("hibernateDAOImpl",HibernateDAOImpl.class);
 		
 
 		
-		Circle c = new Circle();
-		c.setCircleId(4);
-		c.setName("perpendi4");
-		System.out.println("Name for Circle with id 4 is  "+t.getCircle(4));
-
+		com.abhishek.db.entities.Circle c = new com.abhishek.db.entities.Circle();
+		c.setCircleId(6);
+		c.setName("perpendi6");
+		
+		
+		t.saveCircle(c);
+		System.out.println("Circle count using hibernate is  "+t.getCircleCount());
+		
+		context.close();
 	}
 
 }

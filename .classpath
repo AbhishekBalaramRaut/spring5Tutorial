@@ -3,10 +3,10 @@
 	<classpathentry kind="src" path="src"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JavaSE-1.8"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.USER_LIBRARY/spring"/>
-	<classpathentry kind="lib" path="D:/Jars/newSpring/commons-logging-1.2-bin/commons-logging-1.2/commons-logging-1.2.jar"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.USER_LIBRARY/spring-aop"/>
-	<classpathentry kind="lib" path="D:/Jars/newSpring/mysql-connector-java-8.0.11.jar"/>
-	<classpathentry kind="lib" path="D:/Jars/newSpring/commons-dbcp-1.4.jar"/>
-	<classpathentry kind="lib" path="D:/Jars/newSpring/commons-pool-1.4.jar"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.USER_LIBRARY/hibernate5"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.USER_LIBRARY/commonsDbcpConnection"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.USER_LIBRARY/MySqlConnector"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.USER_LIBRARY/commonsLogging"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>

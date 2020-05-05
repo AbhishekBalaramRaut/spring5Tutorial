@@ -96,4 +96,21 @@
     <bean id="simpleJdbcDAOImpl" class="com.abhishek.db.SimpleJdbcDAOImpl" >
 		<property name="dataSource" ref="datasource" />
     </bean>
+    
+     <bean id="hibernateDAOImpl" class="com.abhishek.db.HibernateDAOImpl" >
+		<property name="sessionFactory" ref="sessionFactory" />
+    </bean>
+
+	<bean id="sessionFactory" class="org.springframework.orm.hibernate5.LocalSessionFactoryBean">
+		<property name="dataSource" ref="datasource"/>
+		<property name="packagesToScan" value="com.abhishek.db.entities"/>
+		<property name="hibernateProperties"> 
+		<props>
+			<prop key="hibernate.hbm2ddl.auto">update</prop>
+			<prop key="dialect">org.hibernate.dialect.MySQL5Dialect</prop>
+			<prop key="hibernate.show_sql">true</prop>
+		</props>
+		</property>
+		
+	</bean>    
 </beans> 
