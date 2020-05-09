@@ -7,8 +7,8 @@ import org.springframework.stereotype.Component;
 public class Company {
   private String name;
   
-  
-  private Employee owner;
+  @Autowired
+  private Member owner;
 /**
  * @return the name
  */
@@ -24,13 +24,13 @@ public void setName(String name) {
 /**
  * @return the owner
  */
-public Employee getOwner() {
+public Member getOwner() {
 	return owner;
 }
 /**
  * @param owner the owner to set
  */
-public void setOwner(Employee owner) {
+public void setOwner(Member owner) {
 	this.owner = owner;
 }
   

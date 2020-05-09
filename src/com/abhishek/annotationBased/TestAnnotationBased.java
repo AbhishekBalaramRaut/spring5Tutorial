@@ -15,13 +15,14 @@ public class TestAnnotationBased {
 		AbstractApplicationContext context = new AnnotationConfigApplicationContext(Config.class);
 		context.registerShutdownHook();
 		
-		Employee t1   =  context.getBean(Employee.class);
+	/*	Employee t1   =  context.getBean(Employee.class);
 		
 		System.out.println(t1.getSalary());
-		
+	*/
 		Company t   =  context.getBean(Company.class);
+		Employee y = (Employee)(t.getOwner());
+		System.out.println(y.getSalary());
 		
-		System.out.println(t.getOwner().getSalary());
 		
 		
 	}

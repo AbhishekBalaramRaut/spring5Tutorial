@@ -1,10 +1,12 @@
 package com.abhishek.annotationBased.models;
 
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.context.annotation.Primary;
 import org.springframework.stereotype.Component;
 
 
-public class Employee {
+@Primary
+public class Employee  implements Member{
 	private String name;
 	@Value("30000")
 	private String salary;
