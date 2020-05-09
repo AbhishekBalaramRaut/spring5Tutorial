@@ -15,7 +15,7 @@ public class TestAnnotationBased {
 		context.registerShutdownHook();
 		Company t   =  context.getBean("company",Company.class);
 		
-		System.out.println(t.getOwner().getSalary());;
+		System.out.println(t.getOwner().getSalary());
 		
 		
 	}

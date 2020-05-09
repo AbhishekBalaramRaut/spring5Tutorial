@@ -3,7 +3,7 @@ package com.abhishek.annotationBased.models;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
 
-@Component
+
 public class Employee {
 	private String name;
 	@Value("30000")
