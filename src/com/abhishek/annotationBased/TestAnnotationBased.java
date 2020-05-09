@@ -5,6 +5,7 @@ import org.springframework.context.support.AbstractApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 import com.abhishek.annotationBased.models.Company;
+import com.abhishek.annotationBased.models.Employee;
 import com.abhishek.db.HibernateDAOImpl;
 
 public class TestAnnotationBased {
@@ -13,7 +14,12 @@ public class TestAnnotationBased {
 		// TODO Auto-generated method stub
 		AbstractApplicationContext context = new AnnotationConfigApplicationContext(Config.class);
 		context.registerShutdownHook();
-		Company t   =  context.getBean("company",Company.class);
+		
+		Employee t1   =  context.getBean(Employee.class);
+		
+		System.out.println(t1.getSalary());
+		
+		Company t   =  context.getBean(Company.class);
 		
 		System.out.println(t.getOwner().getSalary());
 		

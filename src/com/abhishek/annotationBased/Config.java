@@ -4,6 +4,7 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
 
+import com.abhishek.annotationBased.models.Company;
 import com.abhishek.annotationBased.models.Employee;
 
 @Configuration
@@ -11,9 +12,17 @@ import com.abhishek.annotationBased.models.Employee;
 		"com.abhishek.annotationBased.models"
 		})
 public class Config {
+	
+	@Bean
+	public Company getComp() {
+		Company p =  new Company();
+		p.setOwner(getEmployee());
+		return p;
+	}
+	
 
 	@Bean
-	public Employee getEmp() {
+	public Employee getEmployee() {
 		return new Employee();
 	}
 }
