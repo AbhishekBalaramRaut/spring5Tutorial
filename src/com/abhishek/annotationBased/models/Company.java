@@ -7,7 +7,6 @@ import org.springframework.stereotype.Component;
 public class Company {
   private String name;
   
-  @Autowired
   private Member owner;
 /**
  * @return the name

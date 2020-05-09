@@ -6,6 +6,7 @@ import org.springframework.context.annotation.Configuration;
 
 import com.abhishek.annotationBased.models.Company;
 import com.abhishek.annotationBased.models.Employee;
+import com.abhishek.annotationBased.models.Member;
 
 @Configuration
 @ComponentScan(basePackages= {
@@ -22,7 +23,13 @@ public class Config {
 	
 
 	@Bean
+	public Member getMember() {
+		return getEmployee();
+	}
+	
+	@Bean
 	public Employee getEmployee() {
 		return new Employee();
 	}
+	
 }
